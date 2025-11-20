@@ -178,28 +178,46 @@ ul.custom-list li::before {
 table.styled-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 24px 50px;
+    margin: 24px auto; 
     font-size: 16px;
+    border: 1px solid #dcdcdc; 
+    border-radius: 8px;
+    overflow: hidden; 
 }
+
 
 table.styled-table thead {
     background: #0066cc;
     color: white;
 }
 
-table.styled-table th,
-table.styled-table td {
-    padding: 14px 19px;
-    border: 1px solid #dcdcdc;
+table.styled-table th {
+    padding: 14px 20px;
+    font-weight: 600;
+    text-align: left;
+    border-right: 1px solid rgba(255,255,255,0.3);
 }
+
+table.styled-table th:last-child {
+    border-right: none;
+}
+
+ 
+table.styled-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
 
 table.styled-table tbody tr:nth-child(even) {
     background: #f5f7fa;
 }
 
+
 table.styled-table tbody tr:hover {
     background: #e9f1fd;
 }
+
 
 table.styled-table td.text-left {
     text-align: left;
@@ -208,6 +226,7 @@ table.styled-table td.text-left {
 table.styled-table td.text-right {
     text-align: right;
 }
+
 table.styled-table td:not(:last-child),
 table.styled-table th:not(:last-child) {
     border-right: 1px solid #eaeaea;
