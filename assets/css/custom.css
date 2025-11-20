@@ -208,3 +208,7 @@ table.styled-table td.text-left {
 table.styled-table td.text-right {
     text-align: right;
 }
+table.styled-table td:not(:last-child),
+table.styled-table th:not(:last-child) {
+    border-right: 1px solid #eaeaea;
+}
