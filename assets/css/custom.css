@@ -100,19 +100,28 @@ button:active {
 
 
 /* 4. COMPONENT RESTYLING */
-.navbar {
-    background: #ffffff !important;
-    border-bottom: 2px solid #e9eef2;
-    padding: 16px 10px;
+.progress {
+    background: #e9eef5;
+    border-radius: 20px;
+    height: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
-.navbar a {
-    color: #333333 !important;
+.progress-bar-wrap {
+    border-radius: 20px;
+}
+
+.progress-bar {
+    background-color: #0066cc;
+    height: 16px;
+    border-radius: 20px;
+    transition: width 0.6s ease-in-out;
+}
+
+.skill {
     font-weight: 600;
-}
-
-.navbar a:hover {
-    color: #0066cc !important;
+    color: #333;
 }
 
 #back-to-top,
