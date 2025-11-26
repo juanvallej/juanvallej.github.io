@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juan Valle Juarez - CV</title>
-  <div class="text-center mb-4">
-    <img src="assets/img/Juan.jpg" alt="Juan Valle Juarez" class="img-fluid rounded-circle shadow" style="width:170px; height:170px; object-fit:cover;">
-  </div>
+  
   <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -58,7 +56,7 @@
 <!-- ====================== HEADER ====================== -->
 <header class="text-center section">
   <div class="text-center mb-4">
-    <img src="assets/img/juan.jpg" alt="Juan Valle Juarez"
+    <img src="assets/img/Juan.jpg" alt="Juan Valle Juarez"
     class="img-fluid rounded-circle shadow"
     style="width:170px; height:170px; object-fit:cover;">
   </div>
@@ -178,8 +176,9 @@
 
 
 <!-- ====================== BACK TO TOP BUTTON ====================== -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-
+<a href="#" id="scroll-top" class="back-to-top-custom d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
 
 
 <!-- ====================== FOOTER ====================== -->
@@ -191,14 +190,34 @@
 <!-- JS -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Copy email function -->
 <script>
+// COPY EMAIL BUTTON
 function copyEmail() {
   navigator.clipboard.writeText("juanvallejaurez@gmail.com");
   let alertBox = document.getElementById("copy-alert");
   alertBox.style.display = "block";
   setTimeout(() => { alertBox.style.display = "none"; }, 1500);
 }
+
+
+// BACK TO TOP BUTTON
+window.addEventListener("scroll", function () {
+  const btn = document.getElementById("back-to-top");
+  
+  if (window.scrollY > 150) {
+    btn.style.display = "flex";
+  } else {
+    btn.style.display = "none";
+  }
+});
+
+document.getElementById("back-to-top").addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 </script>
 
 </body>
