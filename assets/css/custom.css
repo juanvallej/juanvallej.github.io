@@ -125,7 +125,6 @@ button:active {
 }
 
 #back-to-top,
-#back-to-top,
 .back-to-top-custom {
     position: fixed;
     bottom: 25px;
@@ -258,3 +257,4 @@ table.styled-table th:not(:last-child) {
     border-right: 1px solid #eaeaea;
 
 }
+
