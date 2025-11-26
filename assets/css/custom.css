@@ -35,7 +35,6 @@ p {
     margin-bottom: 19px;
 }
 
-
 /* 2. INTERACTIVE ELEMENTS */
 a {
     color: #0066cc;
@@ -74,7 +73,6 @@ button:active {
     background-color: #002d5c;
 }
 
-
 /* 3. SPACING SCALE & SURFACES */
 .section {
     padding: 64px 30px;
@@ -98,8 +96,9 @@ button:active {
     margin-bottom: 32px;
 }
 
-
 /* 4. COMPONENT RESTYLING */
+
+/* PROGRESS BARS */
 .progress {
     background: #e9eef5;
     border-radius: 20px;
@@ -124,6 +123,7 @@ button:active {
     color: #333;
 }
 
+/* === FIXED + FUNCTIONAL BACK TO TOP BUTTON === */
 #back-to-top,
 .back-to-top-custom {
     position: fixed;
@@ -136,16 +136,17 @@ button:active {
     background: #0066cc;
     color: white;
 
-    border-radius: 14px;
-    font-size: 30px;
-
-    display: none;
+    display: none; /* oculto por defecto */
 
     justify-content: center;
     align-items: center;
 
+    border-radius: 14px;
+    font-size: 30px;
+
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     transition: 0.25s ease;
+
     z-index: 9999;
 }
 
@@ -198,18 +199,16 @@ ul.custom-list li::before {
     font-size: 19px;
 }
 
-
 /* OPTIONAL: TABLES */
 table.styled-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 24px auto; 
+    margin: 24px auto;
     font-size: 16px;
-    border: 1px solid #dcdcdc; 
+    border: 1px solid #dcdcdc;
     border-radius: 8px;
-    overflow: hidden; 
+    overflow: hidden;
 }
-
 
 table.styled-table thead {
     background: #0066cc;
@@ -227,22 +226,18 @@ table.styled-table th:last-child {
     border-right: none;
 }
 
- 
 table.styled-table td {
     padding: 14px 20px;
     border-bottom: 1px solid #eaeaea;
 }
 
-
 table.styled-table tbody tr:nth-child(even) {
     background: #f5f7fa;
 }
 
-
 table.styled-table tbody tr:hover {
     background: #e9f1fd;
 }
-
 
 table.styled-table td.text-left {
     text-align: left;
@@ -255,6 +250,5 @@ table.styled-table td.text-right {
 table.styled-table td:not(:last-child),
 table.styled-table th:not(:last-child) {
     border-right: 1px solid #eaeaea;
-
 }
 
