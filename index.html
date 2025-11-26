@@ -1,110 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juan Valle Juarez - CV</title>
-<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="assets/css/custom.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Valle Juarez - CV</title>
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/custom.css" rel="stylesheet">
 </head>
+
 <body>
 
+<!-- ====================== NAVBAR ====================== -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Juan Valle</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+        <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<header class="header text-center p-4">
-<img src="assets/img/Juan.jpg" class="img-fluid rounded-circle mb-3" style="width:150px;" alt="Profile Image">
-<h1 class="mb-0">Juan Valle Juarez</h1>
-<p class="mb-1">Telecommunications Engineering Student</p>
-<p class="mb-1">Zaragoza, Spain</p>
-<p class="mb-1"><a href="mailto:juanvallejaurez@gmail.com">juanvallejaurez@gmail.com</a></p>
-<p class="mb-1">+34 645 975 412</p>
-<p><a href="https://github.com/juanvallej" target="_blank">GitHub Profile</a></p>
+
+<!-- ====================== HEADER ====================== -->
+<header class="text-center section">
+  <img src="assets/img/juan.jpg" class="img-fluid rounded-circle mb-3" style="width:150px;" alt="Profile Photo">
+  <h1 class="mb-2">Juan Valle Juarez</h1>
+  <p class="mb-1">Telecommunications Engineering Student</p>
+  <p class="mb-1">Zaragoza, Spain</p>
+  <p class="mb-1"><a href="mailto:juanvallejaurez@gmail.com">juanvallejaurez@gmail.com</a></p>
+  <p class="mb-1">+34 645 975 412</p>
+  <p><a href="https://github.com/juanvallej" target="_blank">github.com/juanvallej</a></p>
 </header>
 
 
-<main class="main container py-5">
+<main class="main container">
 
-
-<section class="content-block mb-4">
-<h2>Professional Summary</h2>
-<p>Motivated Telecommunications Engineering student with strong analytical abilities and hands-on experience across networking, electronics, cloud technologies, and AI-driven solutions. Demonstrates a proactive approach to learning, problem‑solving, and technological innovation, supported by academic training at University of Zaragoza and an Erasmus year at Vilnius Tech.</p>
+<!-- ====================== ABOUT ====================== -->
+<section id="about" class="content-block">
+  <h2>Professional Summary</h2>
+  <p>
+    Motivated Telecommunications Engineering student with strong analytical abilities and hands-on experience across networking, electronics, cloud technologies, and AI-driven solutions. Demonstrates a proactive approach to learning, engineering problem-solving, and technological innovation, supported by formal training at University of Zaragoza and an Erasmus academic year at Vilnius Tech.
+  </p>
 </section>
 
 
-<section class="content-block mb-4">
-<h2>Education</h2>
-<ul class="custom-list">
-<li><strong>Telecommunications Engineering</strong> – University of Zaragoza (Unizar)<br>2021 – Present</li>
-<li><strong>Erasmus Program</strong> – Vilnius Tech, Lithuania<br>2024 – 2025 Academic Year</li>
-</ul>
+<!-- ====================== EDUCATION ====================== -->
+<section id="education" class="content-block">
+  <h2>Education</h2>
+
+  <ul class="custom-list">
+    <li>
+      <strong>Telecommunications Engineering</strong> – University of Zaragoza (Unizar)<br>
+      2021 – Present
+    </li>
+
+    <li>
+      <strong>Erasmus Program</strong> – Vilnius Tech, Lithuania<br>
+      2024 – 2025 Academic Year
+    </li>
+  </ul>
 </section>
 
 
-<section class="content-block mb-4">
-<h2>Experience</h2>
-<ul class="custom-list">
-<li><strong>Profand Zaragoza</strong><br>Technical work and exposure to industrial environments, supporting operational tasks and developing problem-solving skills in a professional setting.</li>
-</ul>
+<!-- ====================== EXPERIENCE ====================== -->
+<section id="experience" class="content-block">
+  <h2>Experience</h2>
+
+  <ul class="custom-list">
+    <li>
+      <strong>Profand Zaragoza</strong><br>
+      Technical support role assisting industrial operations, developing troubleshooting abilities, and reinforcing practical understanding of professional engineering workflows.
+    </li>
+  </ul>
 </section>
 
 
-<section class="content-block mb-4">
-<h2>Skills</h2>
-<table class="styled-table">
-<thead>
-<tr>
-<th class="text-left">Skill</th>
-<th class="text-right">Level</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="text-left">HTML</td>
-<td class="text-right">100%</td>
-</tr>
-<tr>
-<td class="text-left">CSS</td>
-<td class="text-right">90%</td>
-</tr>
-<tr>
-<td class="text-left">JavaScript</td>
-<td class="text-right">75%</td>
-</tr>
-<tr>
-<td class="text-left">Matlab</td>
-<td class="text-right">80%</td>
-</tr>
-<tr>
-<td class="text-left">Cloud Platforms (GCP, AWS, Azure)</td>
-<td class="text-right">85%</td>
-</tr>
-</tbody>
-</table>
+<!-- ====================== SKILLS (TABLE) ====================== -->
+<section id="skills" class="content-block">
+  <h2>Skills</h2>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th class="text-left">Skill</th>
+        <th class="text-right">Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-left">HTML</td>
+        <td class="text-right">100%</td>
+      </tr>
+      <tr>
+        <td class="text-left">CSS</td>
+        <td class="text-right">90%</td>
+      </tr>
+      <tr>
+        <td class="text-left">JavaScript</td>
+        <td class="text-right">75%</td>
+      </tr>
+      <tr>
+        <td class="text-left">Matlab</td>
+        <td class="text-right">80%</td>
+      </tr>
+      <tr>
+        <td class="text-left">Cloud Platforms (GCP, AWS, Azure)</td>
+        <td class="text-right">85%</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
 
-<section class="content-block mb-4">
-<h2>Projects</h2>
-<ul class="custom-list">
-<li><strong>FAIT: Fitness + AI</strong> – Multi-cloud wellness ecosystem using GCP, Azure and AWS.</li>
-<li><strong>TravelBuddy AI</strong> – AI travel assistant powered by Google Cloud services.</li>
-<li><strong>Neural Activity Decomposition</strong> – Academic project applying AI to neuroscience signal analysis.</li>
-<li><strong>Telecom Signal Analyzer</strong> – University project involving signal processing and data visualization.</li>
-</ul>
+<!-- ====================== PROGRESS BARS ====================== -->
+<section class="content-block">
+  <h2>Technical Levels</h2>
+
+  <div class="progress mb-3">
+    <div class="progress-bar" style="width:100%"></div>
+  </div>
+  <div class="progress mb-3">
+    <div class="progress-bar" style="width:90%"></div>
+  </div>
+  <div class="progress mb-3">
+    <div class="progress-bar" style="width:75%"></div>
+  </div>
 </section>
 
+
+<!-- ====================== PROJECTS ====================== -->
+<section id="projects" class="content-block">
+  <h2>Projects</h2>
+
+  <ul class="custom-list">
+    <li><strong>FAIT: Fitness + AI</strong> – Multi-cloud wellness ecosystem using GCP, Azure and AWS.</li>
+    <li><strong>TravelBuddy AI</strong> – Intelligent travel assistant built with Google Cloud.</li>
+    <li><strong>Neural Activity Decomposition</strong> – AI-based signal processing project in neuroscience.</li>
+    <li><strong>Telecom Signal Analyzer</strong> – Engineering project for processing and visualizing telecom signals.</li>
+  </ul>
+</section>
 
 </main>
 
 
-<footer class="footer text-center py-4">
-<p>© 2025 Juan Valle Juarez • All rights reserved</p>
+<!-- ====================== BACK TO TOP ====================== -->
+<a href="#" id="back-to-top" class="back-to-top-custom d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="text-center p-4">
+  <p>© 2025 Juan Valle Juarez • All rights reserved</p>
 </footer>
 
 
+<!-- JS -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
-  <a href="#" id="back-to-top" class="back-to-top-custom d-flex align-items-center justify-content-center">
-  <i class="bi bi-arrow-up-short"></i>
-</a>
 </html>
