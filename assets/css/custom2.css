@@ -1,5 +1,5 @@
 /* =========================================================
-    LAB 9 - CUSTOM STYLESHEET (px version)
+    LAB 9 - CUSTOM STYLESHEET
    ========================================================= */
 
 /* 1. TYPOGRAPHY SYSTEM */
@@ -35,7 +35,7 @@ p {
     margin-bottom: 19px;
 }
 
-/* 2. INTERACTIVE ELEMENTS */
+/* 2. LINKS & BUTTONS */
 a {
     color: #0066cc;
     text-decoration: none;
@@ -60,6 +60,7 @@ button {
     color: white;
     font-weight: 600;
     transition: 0.25s ease;
+    font-family: "Inter", Arial, sans-serif;
 }
 
 .btn:hover,
@@ -73,7 +74,7 @@ button:active {
     background-color: #002d5c;
 }
 
-/* 3. SPACING SCALE & SURFACES */
+/* 3. LAYOUT SECTIONS & SURFACES */
 .section {
     padding: 64px 30px;
 }
@@ -96,9 +97,7 @@ button:active {
     margin-bottom: 32px;
 }
 
-/* 4. COMPONENT RESTYLING */
-
-/* PROGRESS BARS */
+/* 4. PROGRESS BARS */
 .progress {
     background: #e9eef5;
     border-radius: 20px;
@@ -118,35 +117,23 @@ button:active {
     transition: width 0.6s ease-in-out;
 }
 
-.skill {
-    font-weight: 600;
-    color: #333;
-}
-
-/* === FIXED + FUNCTIONAL BACK TO TOP BUTTON === */
+/* 5. BACK TO TOP BUTTON */
 #back-to-top,
 .back-to-top-custom {
     position: fixed;
     bottom: 25px;
     right: 25px;
-
     width: 55px;
     height: 55px;
-
     background: #0066cc;
     color: white;
-
-    display: none; /* oculto por defecto */
-
+    display: none;
     justify-content: center;
     align-items: center;
-
     border-radius: 14px;
     font-size: 30px;
-
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     transition: 0.25s ease;
-
     z-index: 9999;
 }
 
@@ -158,7 +145,7 @@ button:active {
     background: #002d5c;
 }
 
-/* OPTIONAL: LISTS */
+/* 6. LISTS */
 ol.custom-counter {
     counter-reset: my-counter;
     padding-left: 0;
@@ -199,7 +186,7 @@ ul.custom-list li::before {
     font-size: 19px;
 }
 
-/* OPTIONAL: TABLES */
+/* 7. TABLES */
 table.styled-table {
     width: 100%;
     border-collapse: collapse;
@@ -252,12 +239,10 @@ table.styled-table th:not(:last-child) {
     border-right: 1px solid #eaeaea;
 }
 
-
 /* =========================================================
-   5. ANIMATIONS (LAB 9)
+   8. ANIMATIONS (FADE-IN + BUTTON GLOW)
    ========================================================= */
 
-/* Animación de entrada suave para secciones */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -269,23 +254,6 @@ table.styled-table th:not(:last-child) {
     }
 }
 
-/* Botón con efecto “breathing” al hover (segunda animación) */
-@keyframes buttonGlow {
-    0% {
-        box-shadow: 0 0 0 rgba(0, 102, 204, 0.0);
-        transform: translateY(0);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
-        transform: translateY(-1px);
-    }
-    100% {
-        box-shadow: 0 0 0 rgba(0, 102, 204, 0.0);
-        transform: translateY(0);
-    }
-}
-
-/* Aplicamos la animación a bloques de contenido y algunos textos */
 .fade-in-up {
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
@@ -296,13 +264,27 @@ table.styled-table th:not(:last-child) {
 .fade-in-up.delay-3 { animation-delay: 0.3s; }
 .fade-in-up.delay-4 { animation-delay: 0.4s; }
 
-/* Botón animado en hover */
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(0,102,204,0);
+        transform: translateY(0);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0,102,204,0.5);
+        transform: translateY(-1px);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(0,102,204,0);
+        transform: translateY(0);
+    }
+}
+
 .btn-animated:hover {
     animation: buttonGlow 0.8s ease-out infinite;
 }
 
 /* =========================================================
-   6. CSS-ONLY LOADER (SPINNER + FADE OUT)
+   9. CSS-ONLY LOADER
    ========================================================= */
 
 #page-loader {
@@ -315,7 +297,7 @@ table.styled-table th:not(:last-child) {
     justify-content: center;
     gap: 12px;
     z-index: 10000;
-    animation: loaderFadeOut 1.2s ease-out 1.8s forwards; /* se oculta solo */
+    animation: loaderFadeOut 1.2s ease-out 1.8s forwards;
 }
 
 .loader-spinner {
@@ -333,14 +315,12 @@ table.styled-table th:not(:last-child) {
     color: #555;
 }
 
-/* Rotación del spinner */
 @keyframes loaderSpin {
     to {
         transform: rotate(360deg);
     }
 }
 
-/* Desvanecer el loader y desactivar clics */
 @keyframes loaderFadeOut {
     0% {
         opacity: 1;
@@ -360,7 +340,7 @@ table.styled-table th:not(:last-child) {
 }
 
 /* =========================================================
-   7. OPTIONAL: ANIMATED GRADIENT BACKGROUND
+   10. ANIMATED GRADIENT HEADER + DECORATIVE SHAPES
    ========================================================= */
 
 .header-gradient {
@@ -385,7 +365,6 @@ table.styled-table th:not(:last-child) {
     }
 }
 
-/* Decorative circles */
 .decor-circle {
     position: absolute;
     border-radius: 50%;
@@ -410,7 +389,6 @@ table.styled-table th:not(:last-child) {
     animation-duration: 22s;
 }
 
-/* Movimiento suave de las formas */
 @keyframes floatCircle {
     0% {
         transform: translate3d(0, 0, 0);
@@ -424,7 +402,31 @@ table.styled-table th:not(:last-child) {
 }
 
 /* =========================================================
-   8. ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   11. BOUNCING SPHERE
+   ========================================================= */
+
+.bouncing-sphere {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 10%, #8ecaff 35%, #0066cc 90%);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    animation: bounceSphere 1.8s ease-in-out infinite;
+}
+
+@keyframes bounceSphere {
+    0%   { transform: translateY(0); }
+    35%  { transform: translateY(-90px); }
+    70%  { transform: translateY(0); }
+    85%  { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+/* =========================================================
+   12. ACCESSIBILITY: PREFERS REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -444,26 +446,5 @@ table.styled-table th:not(:last-child) {
     .loader-spinner {
         animation: none;
     }
-}
-
-.bouncing-sphere {
-    position: absolute;
-    bottom: 20px;        /* posición vertical */
-    left: 20px;          /* posición horizontal */
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle at 30% 30%, #ffffff 10%, #8ecaff 35%, #0066cc 90%);
-    border-radius: 50%;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-    animation: bounceSphere 1.8s ease-in-out infinite;
-}
-
-/* Animación del bote */
-@keyframes bounceSphere {
-    0%   { transform: translateY(0); }
-    35%  { transform: translateY(-90px); }
-    70%  { transform: translateY(0); }
-    85%  { transform: translateY(-30px); }
-    100% { transform: translateY(0); }
 }
 
