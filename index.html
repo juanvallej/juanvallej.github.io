@@ -9,12 +9,12 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Main custom styles (ya tenías este) -->
+  <!-- Hoja de estilos original del proyecto -->
   <link href="assets/css/custom.css" rel="stylesheet">
 
-  <!-- NUEVO: hoja de estilos para LAB 9 -->
+  <!-- NUEVA hoja de estilos para la práctica -->
   <link href="assets/css/custom2.css" rel="stylesheet">
-  <div class="bouncing-sphere"></div>
+
   <style>
     /* Alert for copy button */
     #copy-alert {
@@ -28,13 +28,14 @@
       right:20px;
       z-index:9999;
       box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      font-family: "Inter", Arial, sans-serif;
     }
   </style>
 </head>
 
 <body>
 
-<!-- LOADER CSS-ONLY -->
+<!-- LOADER CSS ONLY -->
 <div id="page-loader" aria-hidden="true">
   <div class="loader-spinner"></div>
   <p class="loader-text">Loading CV...</p>
@@ -61,12 +62,14 @@
   </div>
 </nav>
 
-
 <!-- ====================== HEADER ====================== -->
-<header class="text-center section header-gradient">
-  <!-- Formas decorativas CSS -->
+<header class="text-center section header-gradient position-relative">
+  <!-- Formas decorativas -->
   <div class="decor-circle decor-circle-1"></div>
   <div class="decor-circle decor-circle-2"></div>
+
+  <!-- Esfera botando -->
+  <div class="bouncing-sphere"></div>
 
   <div class="text-center mb-4 fade-in-up">
     <img src="assets/img/Juan.jpg" alt="Juan Valle Juarez"
@@ -78,7 +81,7 @@
   <p class="mb-1 fade-in-up delay-2">Telecommunications Engineering Student</p>
   <p class="mb-1 fade-in-up delay-3">Zaragoza, Spain</p>
 
-  <button onclick="copyEmail()" class="btn mt-2 btn-animated">
+  <button onclick="copyEmail()" class="btn mt-2 btn-animated fade-in-up delay-4">
     <i class="bi bi-envelope"></i> Contact
   </button>
 
@@ -87,28 +90,25 @@
   </p>
 </header>
 
-
+<!-- ====================== MAIN ====================== -->
 <main class="main container">
 
-  <!-- ====================== ABOUT ====================== -->
+  <!-- ABOUT -->
   <section id="about" class="content-block fade-in-up">
     <h2>Professional Summary</h2>
     <p>
-      Motivated Telecommunications Engineering student with strong analytical abilities and hands-on experience across networking, electronics, cloud technologies, and AI-driven solutions. Demonstrates a proactive approach to learning, engineering problem-solving, and technological innovation, supported by formal training at University of Zaragoza and an Erasmus academic year at Vilnius Tech.
+      Motivated Telecommunications Engineering student with strong analytical abilities and hands-on experience across networking, electronics, cloud technologies, and AI-driven solutions. Demonstrates a proactive approach to learning, engineering problem-solving, and technological innovation.
     </p>
   </section>
 
-
-  <!-- ====================== EDUCATION ====================== -->
+  <!-- EDUCATION -->
   <section id="education" class="content-block fade-in-up">
     <h2>Education</h2>
-
     <ul class="custom-list">
       <li>
         <strong>Telecommunications Engineering</strong> – University of Zaragoza (Unizar)<br>
         2021 – Present
       </li>
-
       <li>
         <strong>Erasmus Program</strong> – Vilnius Tech, Lithuania<br>
         2024 – 2025 Academic Year
@@ -116,21 +116,18 @@
     </ul>
   </section>
 
-
-  <!-- ====================== EXPERIENCE ====================== -->
+  <!-- EXPERIENCE -->
   <section id="experience" class="content-block fade-in-up">
     <h2>Experience</h2>
-
     <ul class="custom-list">
       <li>
         <strong>Profand Zaragoza</strong><br>
-        Technical support role assisting industrial operations, developing troubleshooting abilities, and reinforcing practical understanding of professional engineering workflows.
+        Technical support role assisting industrial operations, developing troubleshooting abilities and reinforcing practical understanding of engineering workflows.
       </li>
     </ul>
   </section>
 
-
-  <!-- ====================== SKILLS (TABLE) ====================== -->
+  <!-- SKILLS TABLE -->
   <section id="skills" class="content-block fade-in-up">
     <h2>Skills</h2>
 
@@ -151,8 +148,7 @@
     </table>
   </section>
 
-
-  <!-- ====================== PROGRESS BARS ====================== -->
+  <!-- PROGRESS BARS -->
   <section class="content-block fade-in-up">
     <h2>Technical Levels</h2>
 
@@ -172,11 +168,9 @@
     </div>
   </section>
 
-
-  <!-- ====================== PROJECTS ====================== -->
+  <!-- PROJECTS -->
   <section id="projects" class="content-block fade-in-up">
     <h2>Projects</h2>
-
     <ul class="custom-list">
       <li><strong>FAIT: Fitness + AI</strong> – Multi-cloud wellness ecosystem using GCP, Azure and AWS.</li>
       <li><strong>TravelBuddy AI</strong> – Intelligent travel assistant built with Google Cloud.</li>
@@ -187,26 +181,23 @@
 
 </main>
 
-
-<!-- ====================== BACK TO TOP BUTTON ====================== -->
+<!-- BACK TO TOP BUTTON -->
 <a href="#" id="back-to-top" class="back-to-top-custom d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
+  <i class="bi bi-arrow-up-short"></i>
 </a>
 
-
-<!-- ====================== FOOTER ====================== -->
+<!-- FOOTER -->
 <footer class="text-center p-4">
   <p>© 2025 Juan Valle Juarez • All rights reserved</p>
 </footer>
-
 
 <!-- JS -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// COPY EMAIL BUTTON
+// COPY EMAIL BUTTON (cambia el email por el tuyo real)
 function copyEmail() {
-  navigator.clipboard.writeText("juanvallejaurez@gmail.com");
+  navigator.clipboard.writeText("email@example.com");
   let alertBox = document.getElementById("copy-alert");
   alertBox.style.display = "block";
   setTimeout(() => { alertBox.style.display = "none"; }, 1500);
@@ -215,7 +206,6 @@ function copyEmail() {
 // BACK TO TOP BUTTON
 window.addEventListener("scroll", function () {
   const btn = document.getElementById("back-to-top");
-  
   if (window.scrollY > 150) {
     btn.style.display = "flex";
   } else {
