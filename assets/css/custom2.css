@@ -1,3 +1,8 @@
+/* =========================================================
+    LAB 9 - CUSTOM STYLESHEET (px version)
+   ========================================================= */
+
+/* 1. TYPOGRAPHY SYSTEM */
 h1 {
     font-family: "Inter", "Segoe UI", Arial, sans-serif;
     font-size: 48px;
@@ -247,164 +252,128 @@ table.styled-table th:not(:last-child) {
     border-right: 1px solid #eaeaea;
 }
 
+
 /* =========================================================
-   3. ANIMACIONES PERSONALIZADAS (@keyframes)  (REQUISITO 3)
+   5. ANIMATIONS (LAB 9)
    ========================================================= */
 
-/* 3.1. Fade-in + slide-up para secciones */
+/* Animación de entrada suave para secciones */
 @keyframes fadeInUp {
-    from {
+    0% {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(16px);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Aplica esto a cualquier sección que quieras animar */
-.section-animated {
-    opacity: 0;
-    animation: fadeInUp 0.9s ease-out forwards;
-}
-
-/* 3.2. Glow sutil para botones/enlaces al hacer hover */
-@keyframes softGlow {
-    0%, 100% {
-        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+/* Botón con efecto “breathing” al hover (segunda animación) */
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(0, 102, 204, 0.0);
         transform: translateY(0);
     }
     50% {
-        box-shadow: 0 8px 22px rgba(0,102,204,0.45);
-        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
+        transform: translateY(-1px);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(0, 102, 204, 0.0);
+        transform: translateY(0);
     }
 }
 
-/* Botón con animación al pasar el ratón */
-.btn-animated:hover,
-button.btn-animated:hover {
-    animation: softGlow 0.8s ease-in-out infinite;
+/* Aplicamos la animación a bloques de contenido y algunos textos */
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Enlace con subrayado deslizante */
-.link-animated {
-    position: relative;
-    display: inline-block;
-}
+.fade-in-up.delay-1 { animation-delay: 0.1s; }
+.fade-in-up.delay-2 { animation-delay: 0.2s; }
+.fade-in-up.delay-3 { animation-delay: 0.3s; }
+.fade-in-up.delay-4 { animation-delay: 0.4s; }
 
-.link-animated::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0;
-    height: 2px;
-    background: #0066cc;
-    transition: width 0.3s ease;
-}
-
-.link-animated:hover::after {
-    width: 100%;
+/* Botón animado en hover */
+.btn-animated:hover {
+    animation: buttonGlow 0.8s ease-out infinite;
 }
 
 /* =========================================================
-   4. CSS-ONLY LOADER (SPINNER / PULSING DOTS) (REQUISITO 4)
+   6. CSS-ONLY LOADER (SPINNER + FADE OUT)
    ========================================================= */
 
-/* Capa que cubre la pantalla para el loader */
-.loader-overlay {
+#page-loader {
     position: fixed;
     inset: 0;
-    background: rgba(248, 249, 251, 0.96);
+    background: #ffffff;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 12px;
     z-index: 10000;
+    animation: loaderFadeOut 1.2s ease-out 1.8s forwards; /* se oculta solo */
 }
 
-/* Contenedor de las bolitas */
-.loader-dots {
-    display: flex;
-    gap: 11px;
-}
-
-.loader-dot {
-    width: 14px;
-    height: 14px;
+.loader-spinner {
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background: #0066cc;
-    animation: loaderBounce 0.9s infinite ease-in-out;
+    border: 4px solid #e0e6f5;
+    border-top-color: #0066cc;
+    animation: loaderSpin 0.9s linear infinite;
 }
 
-/* Diferentes retrasos para el efecto onda */
-.loader-dot:nth-child(2) {
-    animation-delay: 0.15s;
+.loader-text {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
 }
 
-.loader-dot:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-/* Animación de las bolitas */
-@keyframes loaderBounce {
-    0%, 80%, 100% {
-        transform: translateY(0);
-        opacity: 0.4;
+/* Rotación del spinner */
+@keyframes loaderSpin {
+    to {
+        transform: rotate(360deg);
     }
-    40% {
-        transform: translateY(-9px);
+}
+
+/* Desvanecer el loader y desactivar clics */
+@keyframes loaderFadeOut {
+    0% {
         opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
     }
-}
-
-/* Si quieres ocultar el loader después de cargar con JS,
-   puedes añadir la clase .loader-hidden al overlay */
-.loader-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-/* =========================================================
-   5. PREFERS-REDUCED-MOTION (ACCESIBILIDAD) (REQUISITO 5)
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    99% {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
     }
-
-    /* Podemos dejar el loader estático para que no maree */
-    .loader-dot {
-        animation: none !important;
-        opacity: 1;
+    100% {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
     }
 }
 
 /* =========================================================
-   OPTIONAL TASKS
+   7. OPTIONAL: ANIMATED GRADIENT BACKGROUND
    ========================================================= */
 
-/* A. Fondo con gradiente animado (opcional) */
-body.gradient-background {
-    background: linear-gradient(120deg,
-        #001a33,
-        #004c99,
-        #00a3ff,
-        #00c9a7
-    );
-    background-size: 300% 300%;
-    animation: gradientShift 18s ease infinite;
+.header-gradient {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    background: linear-gradient(120deg, #0066cc, #38bdf8, #6366f1);
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease infinite;
 }
 
-/* Movimiento suave del gradiente */
-@keyframes gradientShift {
+@keyframes gradientMove {
     0% {
         background-position: 0% 50%;
     }
@@ -416,71 +385,63 @@ body.gradient-background {
     }
 }
 
-/* B. Formas decorativas (círculos/triángulos) animadas (opcional) */
-.shape-circle {
-    position: fixed;
-    width: 140px;
-    height: 140px;
+/* Decorative circles */
+.decor-circle {
+    position: absolute;
     border-radius: 50%;
-    background: rgba(0, 102, 204, 0.12);
-    top: 10%;
-    right: -40px;
-    z-index: -1;
-    animation: floatUpDown 10s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.08);
+    filter: blur(0.5px);
     pointer-events: none;
+    animation: floatCircle 18s linear infinite;
 }
 
-.shape-circle.secondary {
-    width: 95px;
-    height: 95px;
-    left: -30px;
-    bottom: 15%;
-    background: rgba(0, 201, 167, 0.16);
-    animation-duration: 13s;
+.decor-circle-1 {
+    width: 220px;
+    height: 220px;
+    top: -60px;
+    left: -40px;
 }
 
-/* Triángulo usando bordes */
-.shape-triangle {
-    position: fixed;
-    width: 0;
-    height: 0;
-    border-left: 55px solid transparent;
-    border-right: 55px solid transparent;
-    border-bottom: 85px solid rgba(255, 255, 255, 0.18);
-    left: 50%;
-    top: -30px;
-    transform: translateX(-50%);
-    z-index: -1;
-    animation: floatRotate 16s linear infinite;
-    pointer-events: none;
+.decor-circle-2 {
+    width: 180px;
+    height: 180px;
+    bottom: -50px;
+    right: -30px;
+    animation-duration: 22s;
 }
 
-/* Animaciones de flotación/rotación */
-@keyframes floatUpDown {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-18px);
-    }
-}
-
-@keyframes floatRotate {
+/* Movimiento suave de las formas */
+@keyframes floatCircle {
     0% {
-        transform: translateX(-50%) rotate(0deg);
+        transform: translate3d(0, 0, 0);
     }
     50% {
-        transform: translateX(-50%) rotate(180deg);
+        transform: translate3d(15px, -10px, 0);
     }
     100% {
-        transform: translateX(-50%) rotate(360deg);
+        transform: translate3d(0, 0, 0);
     }
 }
 
-/* Asegurar que el contenido principal quede por encima de las formas */
-main,
-header,
-footer {
-    position: relative;
-    z-index: 1;
+/* =========================================================
+   8. ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    #page-loader {
+        animation: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .loader-spinner {
+        animation: none;
+    }
 }
