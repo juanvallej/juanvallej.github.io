@@ -445,3 +445,25 @@ table.styled-table th:not(:last-child) {
         animation: none;
     }
 }
+
+.bouncing-sphere {
+    position: absolute;
+    bottom: 20px;        /* posición vertical */
+    left: 20px;          /* posición horizontal */
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 10%, #8ecaff 35%, #0066cc 90%);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    animation: bounceSphere 1.8s ease-in-out infinite;
+}
+
+/* Animación del bote */
+@keyframes bounceSphere {
+    0%   { transform: translateY(0); }
+    35%  { transform: translateY(-90px); }
+    70%  { transform: translateY(0); }
+    85%  { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
