@@ -1,5 +1,5 @@
 // =======================
-// REAL-TIME VALIDATION
+// FIELD REFERENCES
 // =======================
 const fields = {
   name: document.getElementById("name"),
@@ -71,8 +71,9 @@ function validateAddressField(input) {
     setError(input, "Address is required.");
     return false;
   }
-  if (value.length < 5) {
-    setError(input, "Address is too short.");
+  // "Meaningful text string": mínimo 5 caracteres y al menos un espacio
+  if (value.length < 5 || !value.match(/\s/)) {
+    setError(input, "Please enter a more complete address.");
     return false;
   }
   clearError(input);
@@ -101,7 +102,7 @@ function validatePhoneField(input) {
     return false;
   }
   const digits = value.replace(/\D/g, "");
-  // Should be in format +370 6xx xxxxx → digits "3706" + 7 numbers => length 11
+  // "+370 6xx xxxxx" => "3706" + 7 dígitos = 11 dígitos
   if (!digits.startsWith("3706") || digits.length !== 11) {
     setError(input, "Use format +370 6xx xxxxx.");
     return false;
@@ -111,24 +112,22 @@ function validatePhoneField(input) {
 }
 
 // =======================
-// PHONE MASKING (real-time)
+// PHONE MASKING (real-time): +370 6xx xxxxx
 // =======================
 fields.phone.addEventListener("input", (e) => {
   let digits = e.target.value.replace(/\D/g, "");
 
-  // drop leading 00 if written as 00370...
+  // Quitar 00 inicial si lo ponen (00370...)
   if (digits.startsWith("00")) {
     digits = digits.substring(2);
   }
 
-  // ensure it starts with 3706
+  // Normalizar prefijo a 3706...
   if (digits.startsWith("3706")) {
     // ok
   } else if (digits.startsWith("370")) {
-    // user wrote 370 + something, enforce 6
     digits = "3706" + digits.substring(3);
   } else if (digits.startsWith("6")) {
-    // local Lithuanian 6...
     digits = "370" + digits;
   } else if (digits === "") {
     e.target.value = "";
@@ -136,15 +135,14 @@ fields.phone.addEventListener("input", (e) => {
     toggleSubmitButton();
     return;
   } else {
-    // if weird, just force 3706 prefix
     digits = "3706" + digits;
   }
 
-  // keep only 11 digits total (3706 + 7)
+  // Limitar a 11 dígitos (3706 + 7)
   digits = digits.substring(0, 11);
 
   const base = digits.substring(0, 4); // "3706"
-  const rest = digits.substring(4);    // up to 7 digits
+  const rest = digits.substring(4);    // hasta 7 dígitos
 
   const part1 = rest.substring(0, 2);
   const part2 = rest.substring(2, 7);
@@ -154,6 +152,7 @@ fields.phone.addEventListener("input", (e) => {
   if (part2) formatted += " " + part2;
 
   e.target.value = formatted;
+
   validateField(e.target);
   toggleSubmitButton();
 });
@@ -181,7 +180,7 @@ function validateField(input) {
   }
 }
 
-// Attach real-time validation
+// Real-time validation en todos los inputs
 document.querySelectorAll("#contactForm input").forEach((input) => {
   input.addEventListener("input", () => {
     validateField(input);
@@ -209,13 +208,15 @@ function toggleSubmitButton() {
   submitBtn.disabled = !isFormValid();
 }
 
+// Estado inicial del botón
+toggleSubmitButton();
+
 // =======================
 // SUBMIT HANDLER
 // =======================
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // double-check all validation before processing
   if (!isFormValid()) {
     toggleSubmitButton();
     return;
@@ -250,11 +251,9 @@ form.addEventListener("submit", function (e) {
 
   // Color-code average
   const avgSpan = document.getElementById("avgValue");
-  const avgNumber = avg;
-
-  if (avgNumber < 4) {
+  if (avg < 4) {
     avgSpan.style.color = "red";
-  } else if (avgNumber < 7) {
+  } else if (avg < 7) {
     avgSpan.style.color = "orange";
   } else {
     avgSpan.style.color = "green";
