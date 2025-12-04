@@ -9,13 +9,14 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Original Project CSS -->
+  <!-- Hoja de estilos original del proyecto -->
   <link href="assets/css/custom.css" rel="stylesheet">
 
-  <!-- Practice CSS -->
+  <!-- NUEVA hoja de estilos para la práctica -->
   <link href="assets/css/custom2.css" rel="stylesheet">
 
   <style>
+    /* Alert for copy button */
     #copy-alert {
       display:none;
       background:#0066cc;
@@ -64,10 +65,11 @@
 
 <!-- ====================== HEADER ====================== -->
 <header class="text-center section header-gradient position-relative">
-
-  <!-- Decorative shapes -->
+  <!-- Formas decorativas -->
   <div class="decor-circle decor-circle-1"></div>
   <div class="decor-circle decor-circle-2"></div>
+
+  <!-- Esfera botando -->
   <div class="bouncing-sphere"></div>
 
   <div class="text-center mb-4 fade-in-up">
@@ -89,7 +91,7 @@
   </p>
 </header>
 
-<!-- ====================== MAIN CONTENT ====================== -->
+<!-- ====================== MAIN ====================== -->
 <main class="main container">
 
   <!-- ABOUT -->
@@ -183,7 +185,6 @@
     <h2>Contact Form</h2>
 
     <form id="contactForm" novalidate>
-
       <div class="row g-3">
 
         <!-- Name -->
@@ -248,12 +249,10 @@
       <button id="submitBtn" class="btn btn-primary mt-3" disabled>
         Submit
       </button>
-
     </form>
 
     <!-- Result Output -->
     <div id="formResults" class="mt-4"></div>
-
   </section>
 
 </main>
@@ -273,6 +272,7 @@
 <script src="assets/js/custom.js"></script>
 
 <script>
+// COPY EMAIL BUTTON (cambia el email por el tuyo real)
 function copyEmail() {
   navigator.clipboard.writeText("email@example.com");
   let alertBox = document.getElementById("copy-alert");
@@ -280,13 +280,10 @@ function copyEmail() {
   setTimeout(() => { alertBox.style.display = "none"; }, 1500);
 }
 
+// BACK TO TOP BUTTON
 window.addEventListener("scroll", function () {
   const btn = document.getElementById("back-to-top");
-  if (window.scrollY > 150) {
-    btn.style.display = "flex";
-  } else {
-    btn.style.display = "none";
-  }
+  btn.style.display = window.scrollY > 150 ? "flex" : "none";
 });
 
 document.getElementById("back-to-top").addEventListener("click", function (e) {
