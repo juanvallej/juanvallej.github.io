@@ -1,3 +1,4 @@
+/* 1. TYPOGRAPHY SYSTEM */
 h1 {
     font-family: "Inter", "Segoe UI", Arial, sans-serif;
     font-size: 48px;
@@ -30,14 +31,21 @@ p {
     margin-bottom: 19px;
 }
 
+/* 2. LINKS & BUTTONS */
 a {
     color: #0066cc;
     text-decoration: none;
     transition: 0.25s ease;
 }
 
-a:hover { color: #004c99; text-decoration: underline; }
-a:active { color: #002d5c; }
+a:hover {
+    color: #004c99;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #002d5c;
+}
 
 .btn,
 button {
@@ -52,13 +60,29 @@ button {
 }
 
 .btn:hover,
-button:hover { background-color: #004c99; cursor: pointer; }
-.btn:active,
-button:active { background-color: #002d5c; }
+button:hover {
+    background-color: #004c99;
+    cursor: pointer;
+}
 
-.section { padding: 64px 30px; }
-.section-light { background: #f8f9fb; }
-.section-dark { background: #1b1b1b; color:white; }
+.btn:active,
+button:active {
+    background-color: #002d5c;
+}
+
+/* 3. LAYOUT SECTIONS & SURFACES */
+.section {
+    padding: 64px 30px;
+}
+
+.section-light {
+    background: #f8f9fb;
+}
+
+.section-dark {
+    background: #1b1b1b;
+    color: white;
+}
 
 .content-block {
     background: white;
@@ -69,11 +93,27 @@ button:active { background-color: #002d5c; }
     margin-bottom: 32px;
 }
 
-/* Progress Bars */
-.progress { background:#e9eef5; border-radius:20px; height:16px; }
-.progress-bar { background:#0066cc; height:16px; border-radius:20px; }
+/* 4. PROGRESS BARS */
+.progress {
+    background: #e9eef5;
+    border-radius: 20px;
+    height: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
 
-/* Back to Top */
+.progress-bar-wrap {
+    border-radius: 20px;
+}
+
+.progress-bar {
+    background-color: #0066cc;
+    height: 16px;
+    border-radius: 20px;
+    transition: width 0.6s ease-in-out;
+}
+
+/* 5. BACK TO TOP BUTTON */
 #back-to-top,
 .back-to-top-custom {
     position: fixed;
@@ -93,62 +133,334 @@ button:active { background-color: #002d5c; }
     z-index: 9999;
 }
 
-.back-to-top-custom:hover { background:#004c99; }
-.back-to-top-custom:active { background:#002d5c; }
+.back-to-top-custom:hover {
+    background: #004c99;
+}
 
-/* Lists */
-ul.custom-list { padding-left:22px; }
-ul.custom-list li { list-style:none; position:relative; padding-left:19px; }
+.back-to-top-custom:active {
+    background: #002d5c;
+}
+
+/* 6. LISTS */
+ol.custom-counter {
+    counter-reset: my-counter;
+    padding-left: 0;
+}
+
+ol.custom-counter > li {
+    list-style: none;
+    counter-increment: my-counter;
+    padding: 6px 0px 6px 36px;
+    position: relative;
+}
+
+ol.custom-counter > li::before {
+    content: counter(my-counter) ".";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+ul.custom-list {
+    padding-left: 22px;
+}
+
+ul.custom-list li {
+    list-style: none;
+    position: relative;
+    padding-left: 19px;
+}
+
 ul.custom-list li::before {
-    content:"•";
-    position:absolute;
-    left:0; top:4px;
-    color:#0066cc;
-    font-size:19px;
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #0066cc;
+    font-size: 19px;
 }
 
-/* Tables */
-table.styled-table { width:100%; border-collapse:collapse; border:1px solid #dcdcdc; border-radius:8px; }
-table.styled-table thead { background:#0066cc; color:white; }
-table.styled-table th, table.styled-table td { padding:14px 20px; }
+/* 7. TABLES */
+table.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px auto;
+    font-size: 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    overflow: hidden;
+}
 
-/* Animations */
+table.styled-table thead {
+    background: #0066cc;
+    color: white;
+}
+
+table.styled-table th {
+    padding: 14px 20px;
+    font-weight: 600;
+    text-align: left;
+    border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+table.styled-table th:last-child {
+    border-right: none;
+}
+
+table.styled-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+table.styled-table tbody tr:nth-child(even) {
+    background: #f5f7fa;
+}
+
+table.styled-table tbody tr:hover {
+    background: #e9f1fd;
+}
+
+table.styled-table td.text-left {
+    text-align: left;
+}
+
+table.styled-table td.text-right {
+    text-align: right;
+}
+
+table.styled-table td:not(:last-child),
+table.styled-table th:not(:last-child) {
+    border-right: 1px solid #eaeaea;
+}
+
+/* 8. ANIMATIONS (FADE-IN + BUTTON GLOW) */
 @keyframes fadeInUp {
-    0% { opacity:0; transform:translateY(16px); }
-    100% { opacity:1; transform:translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.fade-in-up { opacity:0; animation:fadeInUp .8s forwards; }
 
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-up.delay-1 { animation-delay: 0.1s; }
+.fade-in-up.delay-2 { animation-delay: 0.2s; }
+.fade-in-up.delay-3 { animation-delay: 0.3s; }
+.fade-in-up.delay-4 { animation-delay: 0.4s; }
+
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(0,102,204,0);
+        transform: translateY(0);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0,102,204,0.5);
+        transform: translateY(-1px);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(0,102,204,0);
+        transform: translateY(0);
+    }
+}
+
+.btn-animated:hover {
+    animation: buttonGlow 0.8s ease-out infinite;
+}
+
+/* 9. CSS-ONLY LOADER */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10000;
+    animation: loaderFadeOut 1.2s ease-out 1.8s forwards;
+}
+
+.loader-spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 4px solid #e0e6f5;
+    border-top-color: #0066cc;
+    animation: loaderSpin 0.9s linear infinite;
+}
+
+.loader-text {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+@keyframes loaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loaderFadeOut {
+    0% {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+    }
+    99% {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+}
+
+/* 10. ANIMATED GRADIENT HEADER + DECORATIVE SHAPES */
 .header-gradient {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
     background: linear-gradient(120deg, #0066cc, #38bdf8, #6366f1);
-    background-size:200% 200%;
-    color:white;
-    animation: gradientMove 12s infinite;
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease infinite;
 }
 
-/* Bouncing sphere */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.decor-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    filter: blur(0.5px);
+    pointer-events: none;
+    animation: floatCircle 18s linear infinite;
+}
+
+.decor-circle-1 {
+    width: 220px;
+    height: 220px;
+    top: -60px;
+    left: -40px;
+}
+
+.decor-circle-2 {
+    width: 180px;
+    height: 180px;
+    bottom: -50px;
+    right: -30px;
+    animation-duration: 22s;
+}
+
+@keyframes floatCircle {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(15px, -10px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* 11. BOUNCING SPHERE */
 .bouncing-sphere {
-    position:absolute;
-    bottom:20px; left:20px;
-    width:60px; height:60px;
-    border-radius:50%;
-    background: radial-gradient(circle at 30% 30%, #fff 10%, #8ecaff 35%, #0066cc 90%);
-    animation: bounceSphere 1.8s infinite;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffffff 10%, #8ecaff 35%, #0066cc 90%);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    animation: bounceSphere 1.8s ease-in-out infinite;
 }
 
-/* Correct visual spacing */
+@keyframes bounceSphere {
+    0%   { transform: translateY(0); }
+    35%  { transform: translateY(-90px); }
+    70%  { transform: translateY(0); }
+    85%  { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+/* 12. ACCESSIBILITY: PREFERS REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    #page-loader {
+        animation: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .loader-spinner {
+        animation: none;
+    }
+}
+
+/* =========================================================
+   EXTRA: FORM STYLES FOR OPTIONAL TASK
+   ========================================================= */
+
 #contactForm .form-control {
     border-radius: 10px;
     padding: 10px;
 }
 
-#contactForm .error-message {
-    color: red;
-    font-size: 0.8rem;
-    height: 12px;
+/* Estados de validación */
+#contactForm .form-control.is-invalid {
+    border-color: #dc3545 !important;
 }
 
-/* Popup success message */
+#contactForm .form-control.is-valid {
+    border-color: #28a745 !important;
+}
+
+#contactForm .error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    min-height: 14px;
+    margin-top: 2px;
+}
+
+/* Botón deshabilitado */
+#contactForm button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Popup de éxito */
 .form-popup {
     position: fixed;
     top: 20px;
@@ -164,8 +476,6 @@ table.styled-table th, table.styled-table td { padding:14px 20px; }
 }
 
 @keyframes fade-in {
-    from { opacity:0; transform:translateY(-10px); }
-    to { opacity:1; transform:translateY(0); }
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-
-
