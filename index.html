@@ -9,14 +9,13 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Hoja de estilos original del proyecto -->
+  <!-- Original Project CSS -->
   <link href="assets/css/custom.css" rel="stylesheet">
 
-  <!-- NUEVA hoja de estilos para la práctica -->
+  <!-- Practice CSS (custom2.css final) -->
   <link href="assets/css/custom2.css" rel="stylesheet">
 
   <style>
-    /* Alert for copy button */
     #copy-alert {
       display:none;
       background:#0066cc;
@@ -57,6 +56,7 @@
         <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
         <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
         <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -64,11 +64,9 @@
 
 <!-- ====================== HEADER ====================== -->
 <header class="text-center section header-gradient position-relative">
-  <!-- Formas decorativas -->
+
   <div class="decor-circle decor-circle-1"></div>
   <div class="decor-circle decor-circle-2"></div>
-
-  <!-- Esfera botando -->
   <div class="bouncing-sphere"></div>
 
   <div class="text-center mb-4 fade-in-up">
@@ -90,14 +88,14 @@
   </p>
 </header>
 
-<!-- ====================== MAIN ====================== -->
+<!-- ====================== MAIN CONTENT ====================== -->
 <main class="main container">
 
   <!-- ABOUT -->
   <section id="about" class="content-block fade-in-up">
     <h2>Professional Summary</h2>
     <p>
-      Motivated Telecommunications Engineering student with strong analytical abilities and hands-on experience across networking, electronics, cloud technologies, and AI-driven solutions. Demonstrates a proactive approach to learning, engineering problem-solving, and technological innovation.
+      Motivated Telecommunications Engineering student with strong analytical abilities and hands-on experience across networking, electronics, cloud technologies, and AI-driven solutions.
     </p>
   </section>
 
@@ -105,14 +103,8 @@
   <section id="education" class="content-block fade-in-up">
     <h2>Education</h2>
     <ul class="custom-list">
-      <li>
-        <strong>Telecommunications Engineering</strong> – University of Zaragoza (Unizar)<br>
-        2021 – Present
-      </li>
-      <li>
-        <strong>Erasmus Program</strong> – Vilnius Tech, Lithuania<br>
-        2024 – 2025 Academic Year
-      </li>
+      <li><strong>Telecommunications Engineering</strong> – University of Zaragoza (Unizar) — 2021 – Present</li>
+      <li><strong>Erasmus Program</strong> – Vilnius Tech, Lithuania — 2024 – 2025</li>
     </ul>
   </section>
 
@@ -122,7 +114,7 @@
     <ul class="custom-list">
       <li>
         <strong>Profand Zaragoza</strong><br>
-        Technical support role assisting industrial operations, developing troubleshooting abilities and reinforcing practical understanding of engineering workflows.
+        Technical support role assisting industrial operations.
       </li>
     </ul>
   </section>
@@ -153,49 +145,104 @@
     <h2>Technical Levels</h2>
 
     <p>HTML</p>
-    <div class="progress mb-3">
-      <div class="progress-bar" style="width:100%"></div>
-    </div>
+    <div class="progress mb-3"><div class="progress-bar" style="width:100%"></div></div>
 
     <p>CSS</p>
-    <div class="progress mb-3">
-      <div class="progress-bar" style="width:90%"></div>
-    </div>
+    <div class="progress mb-3"><div class="progress-bar" style="width:90%"></div></div>
 
     <p>JavaScript</p>
-    <div class="progress mb-3">
-      <div class="progress-bar" style="width:75%"></div>
-    </div>
+    <div class="progress mb-3"><div class="progress-bar" style="width:75%"></div></div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="content-block fade-in-up">
     <h2>Projects</h2>
     <ul class="custom-list">
-      <li><strong>FAIT: Fitness + AI</strong> – Multi-cloud wellness ecosystem using GCP, Azure and AWS.</li>
-      <li><strong>TravelBuddy AI</strong> – Intelligent travel assistant built with Google Cloud.</li>
-      <li><strong>Neural Activity Decomposition</strong> – AI-based signal processing project in neuroscience.</li>
-      <li><strong>Telecom Signal Analyzer</strong> – Engineering project for processing and visualizing telecom signals.</li>
+      <li><strong>FAIT: Fitness + AI</strong></li>
+      <li><strong>TravelBuddy AI</strong></li>
+      <li><strong>Neural Activity Decomposition</strong></li>
+      <li><strong>Telecom Signal Analyzer</strong></li>
     </ul>
+  </section>
+
+  <!-- ====================== CONTACT FORM ====================== -->
+  <section id="contact" class="content-block fade-in-up">
+    <h2>Contact Form</h2>
+
+    <form id="contactForm">
+
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Name</label>
+          <input type="text" id="name" class="form-control">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Surname</label>
+          <input type="text" id="surname" class="form-control">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" id="email" class="form-control">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Phone Number</label>
+          <input type="text" id="phone" class="form-control">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Address</label>
+          <input type="text" id="address" class="form-control">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Rating 1</label>
+          <input type="number" id="rating1" min="1" max="10" class="form-control rating">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Rating 2</label>
+          <input type="number" id="rating2" min="1" max="10" class="form-control rating">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Rating 3</label>
+          <input type="number" id="rating3" min="1" max="10" class="form-control rating">
+        </div>
+
+      </div>
+
+      <button id="submitBtn" class="btn btn-primary mt-3" disabled>Submit</button>
+
+    </form>
+
+    <div id="formResults" class="mt-4"></div>
+
   </section>
 
 </main>
 
-<!-- BACK TO TOP BUTTON -->
 <a href="#" id="back-to-top" class="back-to-top-custom d-flex align-items-center justify-content-center">
   <i class="bi bi-arrow-up-short"></i>
 </a>
 
-<!-- FOOTER -->
 <footer class="text-center p-4">
   <p>© 2025 Juan Valle Juarez • All rights reserved</p>
 </footer>
 
 <!-- JS -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/custom.js"></script>
 
 <script>
-// COPY EMAIL BUTTON (cambia el email por el tuyo real)
 function copyEmail() {
   navigator.clipboard.writeText("email@example.com");
   let alertBox = document.getElementById("copy-alert");
@@ -203,22 +250,14 @@ function copyEmail() {
   setTimeout(() => { alertBox.style.display = "none"; }, 1500);
 }
 
-// BACK TO TOP BUTTON
 window.addEventListener("scroll", function () {
   const btn = document.getElementById("back-to-top");
-  if (window.scrollY > 150) {
-    btn.style.display = "flex";
-  } else {
-    btn.style.display = "none";
-  }
+  btn.style.display = window.scrollY > 150 ? "flex" : "none";
 });
 
 document.getElementById("back-to-top").addEventListener("click", function (e) {
   e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 
