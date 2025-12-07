@@ -180,6 +180,38 @@
     </ul>
   </section>
 
+  
+  <section id="memory-game" class="memory-game-section">
+  <h2>Memory Game</h2>
+
+  <div class="mg-controls">
+    <label for="mg-difficulty">Difficulty:</label>
+    <select id="mg-difficulty">
+      <option value="easy">Easy (4×3)</option>
+      <option value="hard">Hard (6×4)</option>
+    </select>
+
+    <button type="button" id="mg-start-btn">Start</button>
+    <button type="button" id="mg-restart-btn" disabled>Restart</button>
+  </div>
+
+  <div class="mg-wrapper">
+    <div class="mg-board" id="mg-board" aria-label="Memory game board"></div>
+
+    <aside class="mg-stats" aria-label="Memory game statistics">
+      <h3>Stats</h3>
+      <p>Moves: <span id="mg-moves">0</span></p>
+      <p>Matched pairs: <span id="mg-matches">0</span></p>
+      <p>Timer: <span id="mg-timer">00:00</span></p>
+      <p>Best (Easy): <span id="mg-best-easy">–</span></p>
+      <p>Best (Hard): <span id="mg-best-hard">–</span></p>
+      <p id="mg-status" class="mg-status" aria-live="polite"></p>
+    </aside>
+  </div>
+
+  <div id="mg-win-message" class="mg-win-message" aria-live="polite" role="status"></div>
+</section>
+
   <!-- ====================== CONTACT FORM (LAB TASK) ====================== -->
   <section id="contact" class="content-block fade-in-up">
     <h2>Contact Form</h2>
