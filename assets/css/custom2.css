@@ -482,3 +482,210 @@ table.styled-table th:not(:last-child) {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+.memory-game-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: #f7f7fb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.memory-game-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.mg-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.mg-controls label {
+  font-weight: 600;
+}
+
+.mg-controls select,
+.mg-controls button {
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.75rem;
+  border: 1px solid #ddd;
+  font: inherit;
+  cursor: pointer;
+  background: #ffffff;
+  transition: box-shadow 0.2s ease, transform 0.1s ease, background-color 0.2s ease;
+}
+
+.mg-controls button {
+  border-color: #444;
+  font-weight: 600;
+}
+
+.mg-controls button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mg-controls button:hover:not(:disabled),
+.mg-controls select:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Layout board + stats */
+
+.mg-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.mg-board {
+  display: grid;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 480px;
+}
+
+/* Easy: 4 columns, 3 rows (12 cards) */
+.mg-board.easy {
+  grid-template-columns: repeat(4, minmax(70px, 100px));
+}
+
+/* Hard: 6 columns, 4 rows (24 cards) */
+.mg-board.hard {
+  grid-template-columns: repeat(6, minmax(60px, 90px));
+}
+
+.mg-stats {
+  min-width: 180px;
+  padding: 1rem 1.25rem;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e4e4ee;
+  font-size: 0.95rem;
+}
+
+.mg-stats h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.mg-stats p {
+  margin: 0.3rem 0;
+}
+
+.mg-status {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Cards */
+
+.mg-card {
+  position: relative;
+  width: 100%;
+  padding-top: 130%; /* Proporción tarjeta */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  perspective: 800px;
+}
+
+.mg-card[aria-disabled="true"] {
+  cursor: default;
+}
+
+.mg-card-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+}
+
+/* Cara frontal (boca abajo) */
+.mg-card-front,
+.mg-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.mg-card-front {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+/* Cara trasera (contenido visible) */
+.mg-card-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+}
+
+/* Estados de giro */
+
+.mg-card.flipped .mg-card-inner,
+.mg-card.matched .mg-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Emparejada */
+.mg-card.matched .mg-card-inner {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.35);
+}
+
+/* Mensaje de victoria */
+
+.mg-win-message {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 1.5rem;
+}
+
+/* Responsive pequeño */
+
+@media (max-width: 600px) {
+  .memory-game-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .mg-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mg-board.easy {
+    grid-template-columns: repeat(3, minmax(70px, 1fr));
+  }
+
+  .mg-board.hard {
+    grid-template-columns: repeat(4, minmax(60px, 1fr));
+  }
+}
+
