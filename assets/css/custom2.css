@@ -688,4 +688,10 @@ table.styled-table th:not(:last-child) {
     grid-template-columns: repeat(4, minmax(60px, 1fr));
   }
 }
+.mg-controls button {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #444 !important;
+    padding: 0.5rem 0.9rem !important;
+}
 
