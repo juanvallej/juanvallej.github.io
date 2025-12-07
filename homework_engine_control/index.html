@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Control Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Engine Control Simulator</h1>
+
+    <div class="engine-panel">
+        <div class="display">
+            <p><strong>Status:</strong> <span id="engineStatus">OFF</span></p>
+            <p><strong>RPM:</strong> <span id="rpmValue">0</span></p>
+            <p><strong>Temperature:</strong> <span id="tempValue">20°C</span></p>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn">Start Engine</button>
+            <button id="stopBtn">Stop Engine</button>
+
+            <label>Acceleration</label>
+            <input type="range" id="rpmSlider" min="0" max="8000" value="0">
+
+        </div>
+    </div>
+
+    <script src="js/engine.js"></script>
+</body>
+</html>
