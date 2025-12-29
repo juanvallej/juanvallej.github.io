@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progreso de la carrera (240 ECTS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Progreso de la carrera</h1>
+        <p class="subtitle">
+          Objetivo: <b>240 ECTS</b>. (38 asignaturas × 6 ECTS + TFG 12 ECTS).
+          Marca las aprobadas y verás el progreso por créditos reales.
+        </p>
+      </div>
+      <div class="badge" id="pctBadge">0%</div>
+    </header>
+
+    <section class="card top">
+      <div class="stats">
+        <div class="stat">
+          <div class="k">Aprobadas</div>
+          <div class="v" id="stApproved">0</div>
+        </div>
+        <div class="stat">
+          <div class="k">Total</div>
+          <div class="v" id="stTotal">39</div>
+        </div>
+        <div class="stat">
+          <div class="k">ECTS aprobados</div>
+          <div class="v" id="stEcts">0</div>
+        </div>
+        <div class="stat">
+          <div class="k">Objetivo</div>
+          <div class="v" id="stGoal">240</div>
+        </div>
+      </div>
+
+      <div class="progressRow">
+        <div class="bar" aria-label="Barra de progreso">
+          <div class="fill" id="progressFill"></div>
+        </div>
+        <div class="badge" id="progressText">0 / 240 ECTS</div>
+      </div>
+
+      <div class="controls">
+        <div class="leftControls">
+          <input id="search" type="text" placeholder="Buscar (ej: Redes, Electrónica, Gestión...)" />
+          <button id="expandAll">Abrir todo</button>
+          <button id="collapseAll">Cerrar todo</button>
+          <button id="markAll">Marcar todas</button>
+          <button id="unmarkAll">Desmarcar todas</button>
+        </div>
+        <button id="reset">Reset (borra guardado)</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="accordion" id="groups"></div>
+    </section>
+
+    <footer>
+      Se guarda en este navegador (localStorage).
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
